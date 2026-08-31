@@ -37,7 +37,20 @@
   nav.main a{font-size:.9rem;font-weight:600;color:var(--ink)}
   nav.main a:hover{color:var(--green-ink)}
   .head-right{display:flex;align-items:center;gap:16px}
-  .lang{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--off);border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:600;color:var(--ink-soft)}
+  .lang-wrap{position:relative}
+  .lang{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--off);border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:600;color:var(--ink-soft);cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .2s,background .2s}
+  .lang:hover{border-color:var(--green);background:#fff}
+  .lang .chev{transition:transform .2s;font-size:.9em}
+  .lang[aria-expanded="true"] .chev{transform:rotate(180deg)}
+  .lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:184px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(8,49,42,.16);padding:6px;list-style:none;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:60}
+  .lang-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-menu li{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:.9rem;font-weight:600;color:var(--ink);cursor:pointer;transition:background .15s}
+  .lang-menu li:hover{background:var(--off)}
+  .lang-menu li[aria-selected="true"]{color:var(--green-ink);background:#E6F8EE}
+  .lang-menu li .fl,.lang .fl{font-size:1.05rem;line-height:1}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--dark);color:#fff;padding:13px 22px;border-radius:999px;font-size:.9rem;font-weight:600;box-shadow:0 14px 34px rgba(8,49,42,.28);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:80;display:flex;align-items:center;gap:10px;max-width:calc(100% - 32px)}
+  .toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .toast .fl{font-size:1.1rem}
   .btn{display:inline-block;font-family:'Inter',sans-serif;font-weight:600;border-radius:999px;cursor:pointer;border:none;font-size:.95rem}
   .btn-solid{background:var(--dark);color:#fff;padding:12px 22px}
   .btn-solid:hover{background:var(--green-ink)}
@@ -95,7 +108,11 @@
   .icard p{color:var(--ink-soft);font-size:1rem}
 
   .ben-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}
-  .bcard{border:1px solid var(--line);border-radius:18px;padding:38px;position:relative;overflow:hidden}
+  .bcard{border:1px solid var(--line);border-radius:18px;padding:38px;position:relative;overflow:hidden;cursor:pointer;outline:none;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  .bcard:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(8,49,42,.12);border-color:var(--green)}
+  .bcard:focus-visible{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,228,124,.35)}
+  .bcard.hl{border-color:var(--green)}
+  .bcard .num{transition:color .25s ease}
   .bcard .num{font-family:'Sora',sans-serif;font-weight:800;font-size:2.6rem;line-height:1;color:#B7E6CD}
   .bcard.hl .num{color:var(--green-ink)}
   .bcard.hl::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--green),#0BC873)}
@@ -179,7 +196,19 @@
       <a href="#study">Study</a><a href="#about">About Bronchiectasis</a><a href="#eligibility">Eligibility</a><a href="#faq">FAQ</a>
     </nav>
     <div class="head-right">
-      <span class="lang">&#127482;&#127480; EN &#9662;</span>
+      <div class="lang-wrap">
+        <button type="button" class="lang" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="fl" id="langFlag">&#127482;&#127480;</span><span id="langCode">EN</span><span class="chev">&#9662;</span>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Select language">
+          <li role="option" data-code="EN" data-flag="&#127482;&#127480;" aria-selected="true"><span class="fl">&#127482;&#127480;</span> English</li>
+          <li role="option" data-code="ES" data-flag="&#127466;&#127480;"><span class="fl">&#127466;&#127480;</span> Espa&ntilde;ol</li>
+          <li role="option" data-code="FR" data-flag="&#127467;&#127479;"><span class="fl">&#127467;&#127479;</span> Fran&ccedil;ais</li>
+          <li role="option" data-code="DE" data-flag="&#127465;&#127466;"><span class="fl">&#127465;&#127466;</span> Deutsch</li>
+          <li role="option" data-code="PT" data-flag="&#127477;&#127481;"><span class="fl">&#127477;&#127481;</span> Portugu&ecirc;s</li>
+          <li role="option" data-code="IT" data-flag="&#127470;&#127481;"><span class="fl">&#127470;&#127481;</span> Italiano</li>
+        </ul>
+      </div>
       <a href="#prescreen" class="btn btn-solid">Check Eligibility</a>
     </div>
   </div>
@@ -250,11 +279,11 @@
 <section class="blk">
   <div class="wrap">
     <div class="center"><p class="eyebrow">03 &mdash; Benefits</p><h2 class="h-lg">Why Participate</h2></div>
-    <div class="ben-grid">
-      <div class="bcard hl"><div class="num">01</div><h3>Access to investigational research</h3><p>Take part in a Phase 3 study of an investigational once-daily tablet not available outside of clinical trials.</p></div>
-      <div class="bcard"><div class="num">02</div><h3>Specialist respiratory care</h3><p>Regular monitoring and study-related assessments by teams experienced in caring for the lungs.</p></div>
-      <div class="bcard"><div class="num">03</div><h3>Study-related assessments</h3><p>Symptom tracking, check-in calls, and site visits help the study team follow how participants are doing.</p></div>
-      <div class="bcard"><div class="num">04</div><h3>Advancing bronchiectasis research</h3><p>Your participation contributes to research that could shape future options for young people with bronchiectasis.</p></div>
+    <div class="ben-grid" id="benGrid">
+      <div class="bcard hl" role="button" tabindex="0" aria-pressed="true"><div class="num" data-count="1">01</div><h3>Access to investigational research</h3><p>Take part in a Phase 3 study of an investigational once-daily tablet not available outside of clinical trials.</p></div>
+      <div class="bcard" role="button" tabindex="0" aria-pressed="false"><div class="num" data-count="2">02</div><h3>Specialist respiratory care</h3><p>Regular monitoring and study-related assessments by teams experienced in caring for the lungs.</p></div>
+      <div class="bcard" role="button" tabindex="0" aria-pressed="false"><div class="num" data-count="3">03</div><h3>Study-related assessments</h3><p>Symptom tracking, check-in calls, and site visits help the study team follow how participants are doing.</p></div>
+      <div class="bcard" role="button" tabindex="0" aria-pressed="false"><div class="num" data-count="4">04</div><h3>Advancing bronchiectasis research</h3><p>Your participation contributes to research that could shape future options for young people with bronchiectasis.</p></div>
     </div>
   </div>
 </section>
@@ -337,7 +366,61 @@
   </div>
 </footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
+  /* Language selector (demonstration only — does not translate content) */
+  (function(){
+    var btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+    if(!btn||!menu)return;
+    var code=document.getElementById('langCode'),flag=document.getElementById('langFlag'),toast=document.getElementById('toast'),tt;
+    function close(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    function open(){menu.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    btn.addEventListener('click',function(e){e.stopPropagation();menu.classList.contains('open')?close():open();});
+    menu.querySelectorAll('[role=option]').forEach(function(li){
+      li.addEventListener('click',function(){
+        menu.querySelectorAll('[role=option]').forEach(function(x){x.setAttribute('aria-selected','false');});
+        li.setAttribute('aria-selected','true');
+        code.textContent=li.getAttribute('data-code');
+        flag.innerHTML=li.getAttribute('data-flag');
+        document.documentElement.setAttribute('lang',li.getAttribute('data-code').toLowerCase());
+        close();
+        if(toast){
+          toast.innerHTML='<span class="fl">'+li.getAttribute('data-flag')+'</span>'+li.textContent.trim()+' selected · translation is for demonstration only';
+          toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show');},3400);
+        }
+      });
+    });
+    document.addEventListener('click',function(e){if(!menu.contains(e.target)&&e.target!==btn)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+
+  /* "Why Participate" cards: selectable highlight + count-up on scroll */
+  (function(){
+    var grid=document.getElementById('benGrid');
+    if(!grid)return;
+    var cards=grid.querySelectorAll('.bcard');
+    cards.forEach(function(c){
+      function activate(){cards.forEach(function(x){x.classList.remove('hl');x.setAttribute('aria-pressed','false');});c.classList.add('hl');c.setAttribute('aria-pressed','true');}
+      c.addEventListener('click',activate);
+      c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
+    });
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function pad(n){return (n<10?'0':'')+n;}
+    function run(){
+      grid.querySelectorAll('.num').forEach(function(el){
+        var target=parseInt(el.getAttribute('data-count'),10);
+        if(reduce){el.textContent=pad(target);return;}
+        var cur=0;el.textContent='00';
+        (function step(){cur++;el.textContent=pad(cur);if(cur<target)setTimeout(step,150);})();
+      });
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){run();io.disconnect();}});},{threshold:.4});
+      io.observe(grid);
+    } else { run(); }
+  })();
+
   (function(){var g=document.querySelectorAll('[data-q]'),a={};g.forEach(function(q,i){q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){q.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');a[i]=b.hasAttribute('data-yes');ev()})})});
   function ev(){if(Object.keys(a).length<3)return;var r=document.getElementById('result');r.classList.add('show');r.innerHTML=(a[0]&&a[1]&&a[2])?"Based on your answers, it may be worth speaking with a study team about the AIRTIVITY&trade; study. A study doctor will review full eligibility with you.":"Based on your answers, this study may not be the right fit &mdash; but a healthcare provider can help you understand other options for bronchiectasis.";}})();
 </script>
