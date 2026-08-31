@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIRTIVITY&trade; Study | Bronchiectasis Research</title>
+<meta name="description" content="The AIRTIVITY study is exploring whether an investigational once-daily tablet helps young people aged 12 to 17 with bronchiectasis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:#08312A;        /* BI Bottle Green */
+    --dark-2:#052019;
+    --green:#00E47C;       /* BI Spring Green */
+    --green-ink:#046B43;   /* accessible green for text on white */
+    --off:#F6F5F3;         /* BI Pampas off-white */
+    --paper:#FFFFFF;
+    --ink:#0C2A24;
+    --ink-soft:#4C6058;
+    --line:#E3E7E2;
+    --line-dk:rgba(255,255,255,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.62;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.disp{font-family:'Sora',sans-serif;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-ink)}
+
+  header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .wordmark{font-family:'Sora',sans-serif;font-weight:700;font-size:1.4rem;color:var(--dark);letter-spacing:-.01em}
+  .wordmark i{color:var(--green-ink);font-style:normal}
+  nav.main{display:flex;gap:34px}
+  nav.main a{font-size:.9rem;font-weight:600;color:var(--ink)}
+  nav.main a:hover{color:var(--green-ink)}
+  .head-right{display:flex;align-items:center;gap:16px}
+  .lang{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--off);border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:600;color:var(--ink-soft)}
+  .btn{display:inline-block;font-family:'Inter',sans-serif;font-weight:600;border-radius:999px;cursor:pointer;border:none;font-size:.95rem}
+  .btn-solid{background:var(--dark);color:#fff;padding:12px 22px}
+  .btn-solid:hover{background:var(--green-ink)}
+  .btn-lg{padding:15px 30px;font-size:1rem}
+  .btn-accent{background:var(--green);color:var(--dark);font-weight:700}
+  .btn-accent:hover{background:#38EE97}
+  .btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.6);color:#fff}
+  .btn-outline:hover{background:rgba(255,255,255,.12)}
+
+  .hero{background:radial-gradient(900px 460px at 88% -10%,rgba(0,228,124,.22),transparent 60%),linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 100%);color:#fff}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:74px 32px 88px}
+  .hero-eye{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .hero-eye .ln{width:44px;height:2px;background:var(--green)}
+  .hero-eye .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .hero-eye span{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9FE9C4}
+  .hero h1{font-size:clamp(2.5rem,4.6vw,4rem);font-weight:700;line-height:1.06}
+  .hero h1 em{display:block;font-style:normal;color:var(--green);font-weight:700}
+  .hero p.lede{margin-top:24px;font-size:1.12rem;color:#D7E6DF;max-width:52ch}
+  .hero-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+  .hero-cta .btn-accent::after{content:" \2192"}
+  .claim{margin-top:30px;font-family:'Sora',sans-serif;font-weight:600;color:var(--green);letter-spacing:.02em;font-size:.95rem;opacity:.9}
+
+  .photo{position:relative;border-radius:20px;overflow:hidden;min-height:420px;background:
+      radial-gradient(120% 120% at 18% 8%,rgba(0,228,124,.32),transparent 55%),
+      linear-gradient(150deg,#0B4A3D 0%,var(--dark) 65%,var(--dark-2) 100%);
+    display:grid;place-items:center}
+  .photo svg{width:118px;height:118px;opacity:.6;stroke:var(--green)}
+  .photo .cap{position:absolute;left:16px;bottom:14px;font-size:.72rem;letter-spacing:.05em;color:rgba(255,255,255,.65)}
+  .photo.light{background:radial-gradient(120% 120% at 80% 0%,rgba(0,228,124,.16),transparent 55%),linear-gradient(160deg,#E7EFE9,#F2F4EF)}
+  .photo.light svg{opacity:.5;stroke:var(--green-ink)}
+  .photo.light .cap{color:var(--ink-soft)}
+
+  .marquee{background:var(--dark-2);color:#fff;overflow:hidden}
+  .marquee .row{display:flex;flex-wrap:wrap;padding:16px 0}
+  .marquee .item{display:inline-flex;align-items:center;gap:10px;padding:8px 30px;border-right:1px solid var(--line-dk);font-size:.92rem}
+  .marquee .item b{font-family:'Sora',sans-serif;font-weight:600}
+  .marquee .item span{color:#8FBAA8;text-transform:uppercase;letter-spacing:.09em;font-size:.7rem;font-weight:700}
+
+  section.blk{padding:96px 0}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .h-lg{font-size:clamp(2rem,3.4vw,2.9rem);font-weight:700;color:var(--dark);line-height:1.12;margin-top:16px}
+  .center{text-align:center;max-width:760px;margin:0 auto}
+  .center .intro{color:var(--ink-soft);font-size:1.12rem;margin-top:16px}
+  .pullquote{font-size:1.3rem;font-weight:600;color:var(--green-ink);border-left:3px solid var(--green);padding-left:22px;margin:24px 0;font-family:'Sora',sans-serif;letter-spacing:-.01em;line-height:1.4}
+  .body-c{color:var(--ink-soft);font-size:1.05rem}
+  .body-c + .body-c{margin-top:16px}
+
+  .about{background:var(--off)}
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}
+  .icard{background:#fff;border-radius:18px;padding:36px;border:1px solid #EAEBE7}
+  .icard .ic{width:54px;height:54px;border-radius:13px;background:#E6F8EE;display:grid;place-items:center;margin-bottom:22px}
+  .icard .ic svg{width:26px;height:26px;stroke:var(--green-ink);fill:none}
+  .icard .lbl{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-ink)}
+  .icard h3{font-size:1.35rem;font-weight:600;color:var(--dark);margin:8px 0 12px}
+  .icard p{color:var(--ink-soft);font-size:1rem}
+
+  .ben-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}
+  .bcard{border:1px solid var(--line);border-radius:18px;padding:38px;position:relative;overflow:hidden}
+  .bcard .num{font-family:'Sora',sans-serif;font-weight:800;font-size:2.6rem;line-height:1;color:#B7E6CD}
+  .bcard.hl .num{color:var(--green-ink)}
+  .bcard.hl::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--green),#0BC873)}
+  .bcard h3{font-size:1.35rem;font-weight:600;color:var(--dark);margin:14px 0 12px}
+  .bcard p{color:var(--ink-soft);font-size:1rem}
+
+  .elig{background:var(--dark);color:#fff}
+  .elig .h-lg{color:#fff}
+  .stat-box{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dk);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden;margin:28px 0 30px}
+  .stat-box .s{background:var(--dark);padding:24px 18px;text-align:center}
+  .stat-box .s b{font-family:'Sora',sans-serif;font-weight:700;font-size:1.4rem;display:block}
+  .stat-box .s span{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8FBAA8}
+  ul.check{list-style:none}
+  ul.check li{position:relative;padding:0 0 18px 42px;color:#DBEAE2}
+  ul.check li::before{content:"";position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:rgba(0,228,124,.22);border:1.5px solid var(--green)}
+  ul.check li::after{content:"";position:absolute;left:9px;top:8px;width:8px;height:5px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+  .foot-note{border-top:1px solid var(--line-dk);padding-top:18px;color:#8FBAA8;font-size:.9rem}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px}
+  .step{position:relative}
+  .step .badge{display:inline-grid;place-items:center;width:54px;height:40px;border:1.5px solid var(--green);border-radius:999px;font-family:'Sora',sans-serif;font-weight:700;color:var(--green-ink);margin-bottom:22px}
+  .step:not(:last-child) .badge::after{content:"\2192";position:absolute;top:8px;left:76px;right:20px;color:#B7E6CD;text-align:right;border-top:1.5px solid var(--line);height:1px}
+  .step h3{font-size:1.15rem;font-weight:600;color:var(--dark);margin-bottom:8px}
+  .step p{color:var(--ink-soft);font-size:.98rem}
+
+  .cta{background:radial-gradient(700px 380px at 50% -20%,rgba(0,228,124,.24),transparent 60%),linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 100%);color:#fff;text-align:center}
+  .cta .badge{display:inline-flex;align-items:center;gap:9px;background:rgba(0,228,124,.16);border:1px solid rgba(0,228,124,.4);border-radius:999px;padding:8px 18px;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9FE9C4}
+  .cta .badge .d{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .cta h2{font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:700;margin:22px auto 0;max-width:20ch}
+  .cta p{color:#D7E6DF;margin:16px auto 0;max-width:46ch}
+
+  .screener{max-width:720px;margin:38px auto 0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:34px;text-align:left}
+  .q{margin-bottom:22px}
+  .q .qt{font-weight:600;margin-bottom:10px}
+  .opts{display:flex;gap:10px}
+  .opts button{cursor:pointer;border:1.5px solid rgba(255,255,255,.45);background:transparent;color:#fff;font-family:'Inter',sans-serif;font-weight:600;padding:10px 26px;border-radius:999px}
+  .opts button[aria-pressed="true"]{background:var(--green);color:var(--dark);border-color:var(--green)}
+  .result{display:none;margin-top:6px;padding:18px 20px;border-radius:12px;background:rgba(0,228,124,.14);border:1px solid rgba(0,228,124,.4)}
+  .result.show{display:block}
+
+  .faq-list{max-width:820px;margin:48px auto 0}
+  details.faq{border-bottom:1px solid var(--line);padding:22px 0}
+  details.faq summary{list-style:none;cursor:pointer;font-family:'Sora',sans-serif;font-size:1.12rem;font-weight:600;color:var(--dark);display:flex;justify-content:space-between;gap:20px}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";color:var(--green-ink);font-weight:700;font-size:1.5rem;line-height:1}
+  details.faq[open] summary::after{content:"\2013"}
+  details.faq p{color:var(--ink-soft);margin-top:14px;max-width:70ch}
+
+  footer{background:var(--dark-2);color:#B6CDC3;padding:66px 0 40px;font-size:.95rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  footer .wordmark{color:#fff;display:inline-block;margin-bottom:16px}
+  footer .wordmark i{color:var(--green)}
+  footer p.desc{max-width:38ch;color:#9CB8AC}
+  .nct-box{border:1px solid var(--line-dk);border-radius:12px;padding:16px 20px;margin-top:24px;display:inline-block}
+  .nct-box span{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#8FBAA8;font-weight:700}
+  .nct-box b{font-family:'Sora',sans-serif;font-size:1.15rem;color:#fff}
+  footer h4{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#8FBAA8;margin-bottom:16px}
+  footer ul{list-style:none}
+  footer ul li{margin-bottom:12px}
+  footer ul a:hover{color:#fff}
+  .foot-btm{border-top:1px solid var(--line-dk);margin-top:48px;padding-top:24px;color:#7E9C90;font-size:.82rem;line-height:1.7}
+
+  @media(max-width:900px){
+    .hero .wrap,.split{grid-template-columns:1fr;gap:36px}
+    .card-grid,.ben-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .step:not(:last-child) .badge::after{display:none}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    nav.main{display:none}
+  }
+  @media(max-width:560px){.wrap{padding:0 20px}.stat-box{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#" class="wordmark">AIRTIV<i>ITY&trade;</i></a>
+    <nav class="main">
+      <a href="#study">Study</a><a href="#about">About Bronchiectasis</a><a href="#eligibility">Eligibility</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="head-right">
+      <span class="lang">&#127482;&#127480; EN &#9662;</span>
+      <a href="#prescreen" class="btn btn-solid">Check Eligibility</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="study">
+  <div class="wrap">
+    <div>
+      <div class="hero-eye"><span class="ln"></span><span class="dot"></span><span>Phase 3 clinical study &mdash; Now enrolling</span></div>
+      <h1>A new option, being studied for<em>young people with bronchiectasis.</em></h1>
+      <p class="lede">The AIRTIVITY&trade; study is a Phase 3 study evaluating an investigational once-daily tablet in people aged 12 to 17 who live with bronchiectasis, produce sputum, and have had flare-ups.</p>
+      <div class="hero-cta">
+        <a href="#prescreen" class="btn btn-accent btn-lg">See if you qualify</a>
+        <a href="#about" class="btn btn-outline btn-lg">Learn more</a>
+      </div>
+      <p class="claim">Life forward</p>
+    </div>
+    <div class="photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2"><path d="M12 4v7M12 11c0 5-3 9-6 9-2 0-2-3-2-6 0-4 3-6 8-3M12 11c0 5 3 9 6 9 2 0 2-3 2-6 0-4-3-6-8-3"/></svg>
+      <span class="cap">Add approved imagery</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="wrap"><div class="row">
+    <div class="item"><b>Bronchiectasis</b><span>Condition</span></div>
+    <div class="item"><b>Ages 12&ndash;17</b><span>Eligible</span></div>
+    <div class="item"><b>One tablet daily</b><span>Treatment</span></div>
+    <div class="item"><b>Up to ~18 months</b><span>Dosing</span></div>
+    <div class="item"><b>Placebo-controlled</b><span>Phase 3</span></div>
+    <div class="item"><b>~506 sites</b><span>Global</span></div>
+  </div></div>
+</div>
+
+<section class="blk">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">01 &mdash; About the study</p>
+      <h2 class="h-lg">Understanding the AIRTIVITY&trade; Study</h2>
+      <p class="pullquote">A Phase 3 study of an investigational tablet aimed at reducing flare-ups.</p>
+      <p class="body-c">Participants are placed by chance into one of two groups &mdash; one takes the investigational tablet, the other takes a matching placebo that looks the same but contains no medicine. Neither the family nor the study team chooses the group.</p>
+      <p class="body-c">Participants take one tablet a day for up to about a year and a half, log symptoms in a smartphone diary, and visit the study site up to about ten times. The study compares how many flare-ups each group has over roughly 20 months total.</p>
+    </div>
+    <div class="photo light">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2"><rect x="7" y="3" width="10" height="18" rx="4"/><path d="M12 7v6M9 13h6"/></svg>
+      <span class="cap">Add approved imagery</span>
+    </div>
+  </div>
+</section>
+
+<section class="blk about" id="about">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">02 &mdash; About Bronchiectasis</p>
+      <h2 class="h-lg">What AIRTIVITY&trade; Is Studying</h2>
+      <p class="intro">Bronchiectasis is a chronic lung condition. These are the hallmark features the study is designed to address.</p>
+    </div>
+    <div class="card-grid">
+      <div class="icard"><div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 4v7M12 11c0 5-3 9-6 9-2 0-2-3-2-6 0-4 3-6 8-3M12 11c0 5 3 9 6 9 2 0 2-3 2-6 0-4-3-6-8-3"/></svg></div><p class="lbl">What it is</p><h3>A chronic lung condition</h3><p>The airways become widened and damaged over time, which makes it harder to clear mucus from the lungs.</p></div>
+      <div class="icard"><div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 14c2-1 4-1 8 0s6 1 8 0M6 18c1.5-.5 3-.5 6 0s4.5.5 6 0"/></svg></div><p class="lbl">Symptom</p><h3>Ongoing cough and sputum</h3><p>A long-lasting cough that brings up mucus (sputum) is one of the most common day-to-day symptoms.</p></div>
+      <div class="icard"><div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg></div><p class="lbl">Flare-ups</p><h3>Exacerbations</h3><p>Periods when symptoms suddenly get worse, sometimes needing antibiotics or other treatment.</p></div>
+      <div class="icard"><div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><p class="lbl">The approach</p><h3>Targeting inflammation</h3><p>The investigational tablet is being studied for its potential to reduce the airway inflammation linked to flare-ups.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="center"><p class="eyebrow">03 &mdash; Benefits</p><h2 class="h-lg">Why Participate</h2></div>
+    <div class="ben-grid">
+      <div class="bcard hl"><div class="num">01</div><h3>Access to investigational research</h3><p>Take part in a Phase 3 study of an investigational once-daily tablet not available outside of clinical trials.</p></div>
+      <div class="bcard"><div class="num">02</div><h3>Specialist respiratory care</h3><p>Regular monitoring and study-related assessments by teams experienced in caring for the lungs.</p></div>
+      <div class="bcard"><div class="num">03</div><h3>Study-related assessments</h3><p>Symptom tracking, check-in calls, and site visits help the study team follow how participants are doing.</p></div>
+      <div class="bcard"><div class="num">04</div><h3>Advancing bronchiectasis research</h3><p>Your participation contributes to research that could shape future options for young people with bronchiectasis.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk elig" id="eligibility">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" style="color:var(--green)">04 &mdash; Eligibility</p>
+      <h2 class="h-lg">Who May Qualify</h2>
+      <div class="stat-box">
+        <div class="s"><b>Ages 12&ndash;17</b><span>Adolescents</span></div>
+        <div class="s"><b>Phase 3</b><span>Placebo-controlled</span></div>
+        <div class="s"><b>~506 sites</b><span>Global</span></div>
+      </div>
+      <ul class="check">
+        <li>Between 12 and 17 years of age</li>
+        <li>A diagnosis of bronchiectasis</li>
+        <li>Produce sputum (bring up mucus) regularly</li>
+        <li>Have a history of flare-ups, also called exacerbations</li>
+      </ul>
+      <p class="foot-note">Additional protocol criteria apply. A study doctor will confirm full eligibility with you.</p>
+    </div>
+    <div class="photo"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2"><path d="M20 6L9 17l-5-5"/></svg><span class="cap">Add approved imagery</span></div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="center"><p class="eyebrow">05 &mdash; Process</p><h2 class="h-lg">How It Works</h2></div>
+    <div class="steps">
+      <div class="step"><div class="badge">01</div><h3>Complete the pre-screener</h3><p>Answer a few short questions to see whether it may be worth speaking with a study team.</p></div>
+      <div class="step"><div class="badge">02</div><h3>Speak with a study team</h3><p>If it may be a fit, a team member reviews the study and answers your questions.</p></div>
+      <div class="step"><div class="badge">03</div><h3>On-site screening</h3><p>A study doctor confirms eligibility and explains what taking part involves.</p></div>
+      <div class="step"><div class="badge">04</div><h3>Begin the study</h3><p>Start once-daily dosing with regular check-ins over the course of the study.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk cta" id="prescreen">
+  <div class="wrap">
+    <span class="badge"><span class="d"></span>Now enrolling &middot; NCT06872892</span>
+    <h2>Could the AIRTIVITY&trade; Study be right for you?</h2>
+    <p>Answer three short questions about the young person you have in mind. This is not a medical assessment and does not confirm eligibility.</p>
+    <div class="screener">
+      <div class="q" data-q><p class="qt">1. Are they between 12 and 17 years old?</p><div class="opts"><button type="button" data-yes>Yes</button><button type="button" data-no>No</button></div></div>
+      <div class="q" data-q><p class="qt">2. Have they been diagnosed with bronchiectasis?</p><div class="opts"><button type="button" data-yes>Yes</button><button type="button" data-no>No</button></div></div>
+      <div class="q" data-q><p class="qt">3. Have they had flare-ups (exacerbations)?</p><div class="opts"><button type="button" data-yes>Yes</button><button type="button" data-no>No</button></div></div>
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="faq">
+  <div class="wrap">
+    <div class="center"><p class="eyebrow">06 &mdash; FAQ</p><h2 class="h-lg">Common Questions</h2></div>
+    <div class="faq-list">
+      <details class="faq"><summary>What is being studied in AIRTIVITY&trade;?</summary><p>The study evaluates an investigational once-daily tablet compared with a matching placebo, to see whether it helps reduce flare-ups in young people with bronchiectasis.</p></details>
+      <details class="faq"><summary>Who can take part?</summary><p>The study is for adolescents aged 12 to 17 who have been diagnosed with bronchiectasis, produce sputum, and have had flare-ups. A study doctor confirms full eligibility.</p></details>
+      <details class="faq"><summary>How long does the study last?</summary><p>Participants take one tablet a day for up to about a year and a half, and are in the study for roughly 20 months in total, including follow-up.</p></details>
+      <details class="faq"><summary>Who is sponsoring the study?</summary><p>The study is sponsored by Boehringer Ingelheim. A study doctor at a participating site can answer detailed questions about taking part.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="wordmark">AIRTIV<i>ITY&trade;</i></a>
+        <p class="desc">The AIRTIVITY&trade; study is sponsored by Boehringer Ingelheim and is evaluating an investigational once-daily tablet in young people with bronchiectasis.</p>
+        <div class="nct-box"><span>ClinicalTrials.gov identifier</span><b>NCT06872892</b></div>
+      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="#study">About the Study</a></li><li><a href="#about">About Bronchiectasis</a></li><li><a href="#eligibility">Eligibility</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Resources</h4><ul><li><a href="#">For Healthcare Providers</a></li><li><a href="#">Living with Bronchiectasis</a></li><li><a href="#">Study Sites</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li><li><a href="#">Cookie Policy</a></li></ul></div>
+    </div>
+    <div class="foot-btm">
+      Demonstration landing page for internal review &middot; ClinicalTrials.gov NCT06872892 &middot; Study 1397-0014. Colors, type, and the &ldquo;Life forward&rdquo; claim reference Boehringer Ingelheim&rsquo;s brand (Bottle Green #08312A, Spring Green #00E47C) for styling only. Not an official Boehringer Ingelheim communication and not intended to recruit participants; replace the wordmark with the approved brand logo before any external use. Always talk with a qualified healthcare provider before making decisions about medical care or study participation.
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){var g=document.querySelectorAll('[data-q]'),a={};g.forEach(function(q,i){q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){q.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');a[i]=b.hasAttribute('data-yes');ev()})})});
+  function ev(){if(Object.keys(a).length<3)return;var r=document.getElementById('result');r.classList.add('show');r.innerHTML=(a[0]&&a[1]&&a[2])?"Based on your answers, it may be worth speaking with a study team about the AIRTIVITY&trade; study. A study doctor will review full eligibility with you.":"Based on your answers, this study may not be the right fit &mdash; but a healthcare provider can help you understand other options for bronchiectasis.";}})();
+</script>
+</body>
+</html>
