@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | AIRTIVITY&trade; Study</title>
+<meta name="description" content="Thank you for your interest in the AIRTIVITY study. Book a call with a study team.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:#08312A;        /* BI Bottle Green */
+    --dark-2:#052019;
+    --green:#00E47C;       /* BI Spring Green */
+    --green-ink:#046B43;   /* accessible green for text on white */
+    --off:#F6F5F3;         /* BI Pampas off-white */
+    --paper:#FFFFFF;
+    --ink:#0C2A24;
+    --ink-soft:#4C6058;
+    --line:#E3E7E2;
+    --line-dk:rgba(255,255,255,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.62;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+  header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .wordmark{font-family:'Sora',sans-serif;font-weight:700;font-size:1.4rem;color:var(--dark);letter-spacing:-.01em}
+  .wordmark i{color:var(--green-ink);font-style:normal}
+  nav.main{display:flex;gap:34px}
+  nav.main a{font-size:.9rem;font-weight:600;color:var(--ink)}
+  nav.main a:hover{color:var(--green-ink)}
+  .head-right{display:flex;align-items:center;gap:16px}
+  .lang-wrap{position:relative}
+  .lang{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--off);border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:600;color:var(--ink-soft);cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .2s,background .2s}
+  .lang:hover{border-color:var(--green);background:#fff}
+  .lang .chev{transition:transform .2s;font-size:.9em}
+  .lang[aria-expanded="true"] .chev{transform:rotate(180deg)}
+  .lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:184px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(8,49,42,.16);padding:6px;list-style:none;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:60}
+  .lang-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-menu li{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:.9rem;font-weight:600;color:var(--ink);cursor:pointer;transition:background .15s}
+  .lang-menu li:hover{background:var(--off)}
+  .lang-menu li[aria-selected="true"]{color:var(--green-ink);background:#E6F8EE}
+  .lang-menu li .fl,.lang .fl{font-size:1.05rem;line-height:1}
+  .btn{display:inline-block;font-family:'Inter',sans-serif;font-weight:600;border-radius:999px;cursor:pointer;border:none;font-size:.95rem}
+  .btn-solid{background:var(--dark);color:#fff;padding:12px 22px}
+  .btn-solid:hover{background:var(--green-ink)}
+
+  .thanks{background:radial-gradient(900px 460px at 88% -10%,rgba(0,228,124,.22),transparent 60%),linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 100%);color:#fff;text-align:center;padding:84px 0 76px}
+  .thanks .badge{display:inline-flex;align-items:center;gap:9px;background:rgba(0,228,124,.16);border:1px solid rgba(0,228,124,.4);border-radius:999px;padding:8px 18px;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9FE9C4}
+  .thanks .badge .d{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .thanks .check{width:74px;height:74px;border-radius:50%;background:rgba(0,228,124,.16);border:1px solid rgba(0,228,124,.45);display:grid;place-items:center;margin:26px auto 0}
+  .thanks .check svg{width:34px;height:34px;stroke:var(--green);fill:none;stroke-width:2.2}
+  .thanks h1{font-size:clamp(2.4rem,4.4vw,3.4rem);font-weight:700;margin:22px 0 0}
+  .thanks p{color:#D7E6DF;max-width:54ch;margin:16px auto 0;font-size:1.1rem}
+
+  .book-section{background:var(--off);padding:64px 0 88px}
+  .book-head{text-align:center;max-width:640px;margin:0 auto 34px}
+  .book-head h2{font-size:clamp(1.6rem,2.6vw,2rem);font-weight:700;color:var(--dark)}
+  .book-head p{color:var(--ink-soft);margin-top:10px}
+  .book-card{max-width:920px;margin:0 auto;background:#fff;border:1px solid #EAEBE7;border-radius:20px;padding:16px;box-shadow:0 24px 60px rgba(8,49,42,.10)}
+  #inline-container{min-height:600px}
+  #inline-container iframe{width:100%;border:none;border-radius:12px}
+
+  footer{background:var(--dark-2);color:#B6CDC3;padding:66px 0 40px;font-size:.95rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  footer .wordmark{color:#fff;display:inline-block;margin-bottom:16px}
+  footer .wordmark i{color:var(--green)}
+  footer p.desc{max-width:38ch;color:#9CB8AC}
+  .nct-box{border:1px solid var(--line-dk);border-radius:12px;padding:16px 20px;margin-top:24px;display:inline-block}
+  .nct-box span{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#8FBAA8;font-weight:700}
+  .nct-box b{font-family:'Sora',sans-serif;font-size:1.15rem;color:#fff}
+  footer h4{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#8FBAA8;margin-bottom:16px}
+  footer ul{list-style:none}
+  footer ul li{margin-bottom:12px}
+  footer ul a:hover{color:#fff}
+  .foot-btm{border-top:1px solid var(--line-dk);margin-top:48px;padding-top:24px;color:#7E9C90;font-size:.82rem;line-height:1.7}
+
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--dark);color:#fff;padding:13px 22px;border-radius:999px;font-size:.9rem;font-weight:600;box-shadow:0 14px 34px rgba(8,49,42,.28);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;z-index:80;display:flex;align-items:center;gap:10px;max-width:calc(100% - 32px)}
+  .toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .toast .fl{font-size:1.1rem}
+
+  @media(max-width:900px){nav.main{display:none}.foot-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.wrap{padding:0 20px}.foot-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="index.html" class="wordmark">AIRTIV<i>ITY&trade;</i></a>
+    <nav class="main">
+      <a href="index.html#study">Study</a><a href="index.html#about">About Bronchiectasis</a><a href="index.html#eligibility">Eligibility</a><a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="head-right">
+      <div class="lang-wrap">
+        <button type="button" class="lang" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="fl" id="langFlag">&#127482;&#127480;</span><span id="langCode">EN</span><span class="chev">&#9662;</span>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Select language">
+          <li role="option" data-code="EN" data-flag="&#127482;&#127480;" aria-selected="true"><span class="fl">&#127482;&#127480;</span> English</li>
+          <li role="option" data-code="ES" data-flag="&#127466;&#127480;"><span class="fl">&#127466;&#127480;</span> Espa&ntilde;ol</li>
+          <li role="option" data-code="FR" data-flag="&#127467;&#127479;"><span class="fl">&#127467;&#127479;</span> Fran&ccedil;ais</li>
+          <li role="option" data-code="DE" data-flag="&#127465;&#127466;"><span class="fl">&#127465;&#127466;</span> Deutsch</li>
+          <li role="option" data-code="PT" data-flag="&#127477;&#127481;"><span class="fl">&#127477;&#127481;</span> Portugu&ecirc;s</li>
+          <li role="option" data-code="IT" data-flag="&#127470;&#127481;"><span class="fl">&#127470;&#127481;</span> Italiano</li>
+        </ul>
+      </div>
+      <a href="index.html" class="btn btn-solid">Back to site</a>
+    </div>
+  </div>
+</header>
+
+<section class="thanks">
+  <div class="wrap">
+    <span class="badge"><span class="d"></span>Response received</span>
+    <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <h1>Thank you</h1>
+    <p>Thanks for your interest in the AIRTIVITY&trade; study. The next step is a short call with a study team &mdash; choose a time that works for you below.</p>
+  </div>
+</section>
+
+<section class="book-section">
+  <div class="wrap">
+    <div class="book-head">
+      <h2>Book your call</h2>
+      <p>Select a date and time, and we&rsquo;ll confirm your appointment by email.</p>
+    </div>
+    <div class="book-card">
+      <!-- Zoho Bookings inline embed -->
+      <div id="inline-container"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="wordmark">AIRTIV<i>ITY&trade;</i></a>
+        <p class="desc">The AIRTIVITY&trade; study is sponsored by Boehringer Ingelheim and is evaluating an investigational once-daily tablet in young people with bronchiectasis.</p>
+        <div class="nct-box"><span>ClinicalTrials.gov identifier</span><b>NCT06872892</b></div>
+      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="index.html#study">About the Study</a></li><li><a href="index.html#about">About Bronchiectasis</a></li><li><a href="index.html#eligibility">Eligibility</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Resources</h4><ul><li><a href="#">For Healthcare Providers</a></li><li><a href="#">Living with Bronchiectasis</a></li><li><a href="#">Study Sites</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li><li><a href="#">Cookie Policy</a></li></ul></div>
+    </div>
+    <div class="foot-btm">
+      Demonstration landing page for internal review &middot; ClinicalTrials.gov NCT06872892 &middot; Study 1397-0014. Colors, type, and the &ldquo;Life forward&rdquo; claim reference Boehringer Ingelheim&rsquo;s brand (Bottle Green #08312A, Spring Green #00E47C) for styling only. Not an official Boehringer Ingelheim communication and not intended to recruit participants; replace the wordmark with the approved brand logo before any external use. Always talk with a qualified healthcare provider before making decisions about medical care or study participation.
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Zoho Bookings inline embed -->
+<script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
+<script>
+  // Initialize inline embed after script loads
+  window.onload = function() {
+    Bookings.inlineEmbed({
+      url: "https://user1-demo678.zohobookings.com/portal-embed#/4738792000000408030",
+      parent: "#inline-container",
+      height: "600px"
+    });
+  };
+</script>
+
+<script>
+  /* Language selector (demonstration only — does not translate content) */
+  (function(){
+    var btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
+    if(!btn||!menu)return;
+    var code=document.getElementById('langCode'),flag=document.getElementById('langFlag'),toast=document.getElementById('toast'),tt;
+    function close(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    function open(){menu.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    btn.addEventListener('click',function(e){e.stopPropagation();menu.classList.contains('open')?close():open();});
+    menu.querySelectorAll('[role=option]').forEach(function(li){
+      li.addEventListener('click',function(){
+        menu.querySelectorAll('[role=option]').forEach(function(x){x.setAttribute('aria-selected','false');});
+        li.setAttribute('aria-selected','true');
+        code.textContent=li.getAttribute('data-code');
+        flag.innerHTML=li.getAttribute('data-flag');
+        document.documentElement.setAttribute('lang',li.getAttribute('data-code').toLowerCase());
+        close();
+        if(toast){
+          toast.innerHTML='<span class="fl">'+li.getAttribute('data-flag')+'</span>'+li.textContent.trim()+' selected · translation is for demonstration only';
+          toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show');},3400);
+        }
+      });
+    });
+    document.addEventListener('click',function(e){if(!menu.contains(e.target)&&e.target!==btn)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+</script>
+</body>
+</html>
