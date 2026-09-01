@@ -78,6 +78,7 @@
       linear-gradient(150deg,#0B4A3D 0%,var(--dark) 65%,var(--dark-2) 100%);
     display:grid;place-items:center}
   .photo svg{width:118px;height:118px;opacity:.6;stroke:var(--green)}
+  .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .photo .cap{position:absolute;left:16px;bottom:14px;font-size:.72rem;letter-spacing:.05em;color:rgba(255,255,255,.65)}
   .photo.light{background:radial-gradient(120% 120% at 80% 0%,rgba(0,228,124,.16),transparent 55%),linear-gradient(160deg,#E7EFE9,#F2F4EF)}
   .photo.light svg{opacity:.5;stroke:var(--green-ink)}
@@ -227,8 +228,7 @@
       <p class="claim">Life forward</p>
     </div>
     <div class="photo">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2"><path d="M12 4v7M12 11c0 5-3 9-6 9-2 0-2-3-2-6 0-4 3-6 8-3M12 11c0 5 3 9 6 9 2 0 2-3 2-6 0-4-3-6-8-3"/></svg>
-      <span class="cap">Add approved imagery</span>
+      <img src="assets/hero-1.png" alt="A young person with bronchiectasis looking out a window at home">
     </div>
   </div>
 </section>
