@@ -407,7 +407,7 @@
       						var prevIframeHeight = iframe.style.height;
       						var zf_tout = false;
       						if( zf_ifrm_data.length == 3 ) {
-      						    iframe.scrollIntoView();
+      						    var _zfTop=iframe.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:_zfTop<0?0:_zfTop,behavior:'smooth'});
       						    zf_tout = true;
       						}
       						if ( prevIframeHeight != zf_ifrm_ht_nw ) {
