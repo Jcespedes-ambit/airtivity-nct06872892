@@ -551,6 +551,18 @@
     }
     return out;
   }
+  /* Swap the embedded Zoho form to Spanish (zf_lang=es) or back to English. */
+  function setFormLanguage(code){
+    var div = document.getElementById('zf_div_ORG2IDVlHsTavp5SvRmQUbYkVeAdcBvL6yKqzPXUodI');
+    var ifr = div && div.getElementsByTagName('iframe')[0];
+    if(!ifr || !ifr.src) return;
+    try {
+      var u = new URL(ifr.src);
+      if(code && code.toLowerCase() === 'es') u.searchParams.set('zf_lang','es');
+      else u.searchParams.delete('zf_lang');
+      if(u.toString() !== ifr.src) ifr.src = u.toString();
+    } catch(e){}
+  }
   window.__applyLanguage = function(code){
     if(cached === null) cached = collect();
     var dict = (code && code.toLowerCase() !== 'en') ? DICT[code.toLowerCase()] : null;
@@ -559,6 +571,7 @@
       n.nodeValue = val ? n.__orig.replace(key, val) : n.__orig;
     });
     document.documentElement.setAttribute('lang', (code || 'en').toLowerCase());
+    setFormLanguage(code);
   };
 })();
 </script>
