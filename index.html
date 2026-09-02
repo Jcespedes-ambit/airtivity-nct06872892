@@ -462,7 +462,109 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-  /* Language selector (demonstration only — does not translate content) */
+/* Option A i18n engine — swaps visible text by dictionary lookup.
+   Demonstration translations only (not medically reviewed/approved).
+   Any string without an entry, or any language without a dictionary,
+   falls back to English. Add languages by adding a DICT[code] block. */
+(function(){
+  var DICT = {
+    es: {
+      "Study":"Estudio","About IIM":"Sobre las MII","Eligibility":"Elegibilidad","FAQ":"Preguntas frecuentes","Check Eligibility":"Verificar elegibilidad",
+      "Phase 3 clinical study — Enrolling soon":"Estudio clínico de fase 3 — Inscripción próximamente",
+      "A new option, being studied for":"Una nueva opción, en estudio para",
+      "adults with inflammatory myopathy.":"adultos con miopatía inflamatoria.",
+      "The VERANDA™-IIM study is a Phase 3 study evaluating nerandomilast, an investigational oral tablet taken twice daily and added to standard therapy, in adults aged 18 and older living with active idiopathic inflammatory myopathy (IIM).":"El estudio VERANDA™-IIM es un estudio de fase 3 que evalúa nerandomilast, un comprimido oral en investigación que se toma dos veces al día y se añade al tratamiento estándar, en adultos de 18 años o más que viven con miopatía inflamatoria idiopática (MII) activa.",
+      "See if you qualify":"Vea si califica","Learn more":"Más información",
+      "Inflammatory myopathy":"Miopatía inflamatoria","Condition":"Afección","Ages 18+":"18 años o más","Eligible":"Elegible","One tablet, twice daily":"Un comprimido, dos veces al día","Treatment":"Tratamiento","52 weeks":"52 semanas","Dosing":"Dosificación","Placebo-controlled":"Controlado con placebo","Phase 3":"Fase 3","24 countries":"24 países","Global":"Global",
+      "01 — About the study":"01 — Sobre el estudio",
+      "Understanding the VERANDA™-IIM Study":"Comprender el estudio VERANDA™-IIM",
+      "A Phase 3 study of an investigational oral tablet added to standard myopathy therapy.":"Un estudio de fase 3 de un comprimido oral en investigación añadido al tratamiento estándar de la miopatía.",
+      "Participants are placed by chance into one of two groups — one takes nerandomilast, the other takes a matching placebo that looks the same but contains no medicine. Both groups continue their usual background therapy, and neither the participant nor the study team chooses the group.":"Los participantes se asignan al azar a uno de dos grupos: uno toma nerandomilast y el otro toma un placebo idéntico que tiene el mismo aspecto pero no contiene medicamento. Ambos grupos continúan con su tratamiento de base habitual, y ni el participante ni el equipo del estudio eligen el grupo.",
+      "Participants take the tablet twice a day for 52 weeks, alongside regular health checks, symptom assessments, and quality-of-life questionnaires. The study lasts about 14 months in total, with a minimum of around 16 site visits, and measures improvement using a Total Improvement Score at Week 52.":"Los participantes toman el comprimido dos veces al día durante 52 semanas, junto con controles de salud periódicos, evaluaciones de síntomas y cuestionarios de calidad de vida. El estudio dura unos 14 meses en total, con un mínimo de alrededor de 16 visitas al centro, y mide la mejoría mediante una Puntuación Total de Mejoría en la semana 52.",
+      "02 — About IIM":"02 — Sobre las MII",
+      "What VERANDA™-IIM Is Studying":"Qué estudia VERANDA™-IIM",
+      "Idiopathic inflammatory myopathies (IIM) are a group of rare autoimmune conditions that cause muscle inflammation and weakness. These are the areas this research is built around.":"Las miopatías inflamatorias idiopáticas (MII) son un grupo de enfermedades autoinmunes poco frecuentes que causan inflamación y debilidad muscular. Estas son las áreas en las que se centra esta investigación.",
+      "What it is":"Qué es","A chronic autoimmune condition":"Una enfermedad autoinmune crónica",
+      "The immune system mistakenly attacks the muscles, causing ongoing inflammation that can weaken them over time.":"El sistema inmunitario ataca por error los músculos, provocando una inflamación continua que puede debilitarlos con el tiempo.",
+      "Symptom":"Síntoma","Muscle weakness and fatigue":"Debilidad muscular y fatiga",
+      "Weakness in the muscles closest to the trunk — hips, thighs, and shoulders — can make everyday movements harder.":"La debilidad en los músculos más cercanos al tronco —caderas, muslos y hombros— puede dificultar los movimientos cotidianos.",
+      "Disease activity":"Actividad de la enfermedad","Active disease":"Enfermedad activa",
+      "Periods of increased inflammation that can also affect the skin, joints, or lungs in addition to the muscles.":"Períodos de mayor inflamación que también pueden afectar la piel, las articulaciones o los pulmones además de los músculos.",
+      "The approach":"El enfoque","Targeting inflammation":"Actuar sobre la inflamación",
+      "Nerandomilast is being studied for its potential to reduce the inflammation that drives myopathy disease activity.":"Se está estudiando nerandomilast por su potencial para reducir la inflamación que impulsa la actividad de la miopatía.",
+      "03 — Benefits":"03 — Beneficios","Why Participate":"Por qué participar",
+      "Access to investigational research":"Acceso a investigación en estudio",
+      "Take part in a Phase 3 study of nerandomilast, an investigational tablet not available outside of clinical trials.":"Participe en un estudio de fase 3 de nerandomilast, un comprimido en investigación que no está disponible fuera de los ensayos clínicos.",
+      "Specialist myopathy care":"Atención especializada en miopatía",
+      "Regular monitoring and study-related assessments by teams experienced in inflammatory muscle disease.":"Seguimiento periódico y evaluaciones relacionadas con el estudio por parte de equipos con experiencia en enfermedades musculares inflamatorias.",
+      "Continue your standard therapy":"Continúe con su tratamiento estándar",
+      "Participants stay on their usual background IIM therapy throughout the study, alongside the tablet.":"Los participantes mantienen su tratamiento de base habitual para las MII durante todo el estudio, junto con el comprimido.",
+      "Advancing myopathy research":"Impulsar la investigación de la miopatía",
+      "Your participation contributes to research that could shape future options for people with inflammatory myopathies.":"Su participación contribuye a una investigación que podría definir futuras opciones para las personas con miopatías inflamatorias.",
+      "04 — Eligibility":"04 — Elegibilidad","Who May Qualify":"Quién puede calificar","Adults":"Adultos",
+      "Adults 18 years of age or older":"Adultos de 18 años o más",
+      "A diagnosis of definite or probable IIM (2017 ACR/EULAR criteria)":"Un diagnóstico de MII definida o probable (criterios ACR/EULAR de 2017)",
+      "Moderate to severe myopathy disease activity":"Actividad de la miopatía de moderada a grave",
+      "Currently taking background IIM therapy":"Actualmente en tratamiento de base para las MII",
+      "Additional protocol criteria apply. A study doctor will confirm full eligibility with you.":"Se aplican criterios adicionales del protocolo. Un médico del estudio confirmará su elegibilidad completa.",
+      "05 — Process":"05 — Proceso","How It Works":"Cómo funciona",
+      "Complete the pre-screener":"Complete el precuestionario",
+      "Answer a few short questions to see whether it may be worth speaking with a study team.":"Responda unas breves preguntas para ver si vale la pena hablar con un equipo del estudio.",
+      "Speak with a study team":"Hable con un equipo del estudio",
+      "If it may be a fit, a team member reviews the study and answers your questions.":"Si podría encajar, un miembro del equipo repasa el estudio y responde sus preguntas.",
+      "On-site screening":"Evaluación en el centro",
+      "A study doctor confirms eligibility and explains what taking part involves.":"Un médico del estudio confirma la elegibilidad y explica lo que implica participar.",
+      "Begin the study":"Comience el estudio",
+      "Start twice-daily dosing alongside your standard therapy, with regular check-ins over the course of the study.":"Comience la dosificación dos veces al día junto con su tratamiento estándar, con controles periódicos a lo largo del estudio.",
+      "Enrolling soon · NCT07789015":"Inscripción próximamente · NCT07789015",
+      "Could the VERANDA™-IIM Study be right for you?":"¿Podría ser el estudio VERANDA™-IIM adecuado para usted?",
+      "Fill out the short form below and a study team can follow up with you. This is not a medical assessment and does not confirm eligibility.":"Complete el breve formulario a continuación y un equipo del estudio podrá comunicarse con usted. Esto no es una evaluación médica y no confirma la elegibilidad.",
+      "06 — FAQ":"06 — Preguntas frecuentes","Common Questions":"Preguntas comunes",
+      "What is being studied in VERANDA™-IIM?":"¿Qué se estudia en VERANDA™-IIM?",
+      "The study evaluates nerandomilast, an investigational oral tablet, compared with a matching placebo, when added to standard therapy over 52 weeks in adults with active idiopathic inflammatory myopathy.":"El estudio evalúa nerandomilast, un comprimido oral en investigación, en comparación con un placebo idéntico, cuando se añade al tratamiento estándar durante 52 semanas en adultos con miopatía inflamatoria idiopática activa.",
+      "Who can take part?":"¿Quién puede participar?",
+      "The study is for adults 18 and older with definite or probable IIM (per 2017 ACR/EULAR criteria) and moderate to severe disease activity who are already on background therapy. A study doctor confirms full eligibility.":"El estudio es para adultos de 18 años o más con MII definida o probable (según los criterios ACR/EULAR de 2017) y actividad de la enfermedad de moderada a grave que ya reciben tratamiento de base. Un médico del estudio confirma la elegibilidad completa.",
+      "How long does the study last?":"¿Cuánto dura el estudio?",
+      "Participants take the tablet twice a day for 52 weeks and are in the study for about 14 months in total, including follow-up, with a minimum of around 16 site visits.":"Los participantes toman el comprimido dos veces al día durante 52 semanas y permanecen en el estudio unos 14 meses en total, incluido el seguimiento, con un mínimo de alrededor de 16 visitas al centro.",
+      "Who is sponsoring the study?":"¿Quién patrocina el estudio?",
+      "The study is sponsored by Boehringer Ingelheim. A study doctor at a participating site can answer detailed questions about taking part.":"El estudio está patrocinado por Boehringer Ingelheim. Un médico del estudio en un centro participante puede responder preguntas detalladas sobre la participación.",
+      "The VERANDA™-IIM study is sponsored by Boehringer Ingelheim and is evaluating nerandomilast, an investigational oral tablet, in adults with idiopathic inflammatory myopathies.":"El estudio VERANDA™-IIM está patrocinado por Boehringer Ingelheim y evalúa nerandomilast, un comprimido oral en investigación, en adultos con miopatías inflamatorias idiopáticas.",
+      "ClinicalTrials.gov identifier":"Identificador de ClinicalTrials.gov",
+      "Quick Links":"Enlaces rápidos","About the Study":"Sobre el estudio","Resources":"Recursos","For Healthcare Providers":"Para profesionales de la salud","Living with Myopathy":"Vivir con miopatía","Study Sites":"Centros del estudio","Legal":"Aviso legal","Privacy Policy":"Política de privacidad","Terms of Use":"Términos de uso","Cookie Policy":"Política de cookies"
+    }
+  };
+  var cached = null;
+  function eligible(node){
+    var p = node.parentNode;
+    while(p && p.nodeType === 1){
+      var tag = p.nodeName.toLowerCase();
+      if(tag === 'script' || tag === 'style' || tag === 'noscript') return false;
+      if(p.classList && (p.classList.contains('wordmark') || p.classList.contains('lang') || p.classList.contains('lang-menu') || p.classList.contains('toast'))) return false;
+      p = p.parentNode;
+    }
+    return true;
+  }
+  function collect(){
+    var out = [], w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n;
+    while(n = w.nextNode()){
+      if(n.nodeValue && n.nodeValue.trim() && eligible(n)){ n.__orig = n.nodeValue; out.push(n); }
+    }
+    return out;
+  }
+  window.__applyLanguage = function(code){
+    if(cached === null) cached = collect();
+    var dict = (code && code.toLowerCase() !== 'en') ? DICT[code.toLowerCase()] : null;
+    cached.forEach(function(n){
+      var key = n.__orig.trim(), val = dict && dict[key];
+      n.nodeValue = val ? n.__orig.replace(key, val) : n.__orig;
+    });
+    document.documentElement.setAttribute('lang', (code || 'en').toLowerCase());
+  };
+})();
+</script>
+
+<script>
+  /* Language selector — updates the flag/label and applies translations */
   (function(){
     var btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu');
     if(!btn||!menu)return;
@@ -476,7 +578,7 @@
         li.setAttribute('aria-selected','true');
         code.textContent=li.getAttribute('data-code');
         flag.innerHTML=li.getAttribute('data-flag');
-        document.documentElement.setAttribute('lang',li.getAttribute('data-code').toLowerCase());
+        if(window.__applyLanguage) window.__applyLanguage(li.getAttribute('data-code'));
         close();
         if(toast){
           toast.innerHTML='<span class="fl">'+li.getAttribute('data-flag')+'</span>'+li.textContent.trim()+' selected · translation is for demonstration only';
